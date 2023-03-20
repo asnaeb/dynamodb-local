@@ -384,7 +384,7 @@ export class DynamoDBLocal {
 
         const {pid} = this.#dynamodb
 
-        return Promise.resolve(log.warning(`DynamoDB process is already running with pid: ${styles.underline(String(pid))}`))
+        return Promise.reject(log.error('error', `DynamoDB process is already running with pid: ${styles.underline(String(pid))}`))
     }
 
     @bound public stop() {
@@ -394,7 +394,7 @@ export class DynamoDBLocal {
             return Promise.resolve(this.#dynamodb = undefined)
         }
 
-        return Promise.resolve(log.warning('Requested DynamoDB not killed because it was not running'))
+        return Promise.reject(log.error('error', 'Requested DynamoDB process not killed because it was not running'))
     }
 }
 
