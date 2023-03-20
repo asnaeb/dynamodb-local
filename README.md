@@ -11,48 +11,49 @@ npm i -g @asn.aeb/dybamodb-local
 ```
 # CLI
 The CLI API can be used via `npx dynamodb-local` when installed locally or by just calling `dynamodb-local` from your shell when installed with `-g` 
-## `install`
+## `install` command
 Downloads and installs dynamodb or, if already installed, prompts to download the latest version and update the current installation.
 ```
 dynamodb-local install 
 ```
-## `uninstall`
+## `uninstall` command
 Uninstalls dynamodb.
 ```
 dynamodb-local uninstall 
 ```
 
-## `start`
+## `start` command
 Starts dynamodb or, if not installed, prompts to install it and, on positive response, will install and then immediately start the service.
 ```
 dynamodb-local start
 ```
-### `--cors`
+### Arguments
+#### `--cors`
 An allow list of specific domains separated by comma. Defaults to *
 ```
 dynamodb-local start --cors=my.domain.com,my-other-domain.com
 ```
-### `---dbPath`
+#### `---dbPath`
 The directory where DynamoDB writes its database file. Defaults to `{install dir}/DynamoDBLocal_db`. Cannot be used along with `--inMemory`.
 ```
 dynamodb-local start --dbPath=path/to/directory
 ```
-### `--delayTransientStatuses`
+#### `--delayTransientStatuses`
 Causes DynamoDB to introduce delays for certain operations, simulating the behavior of the DynamoDB web service more closely.
 ```
 dynamodb-local start --delayTransientStatuses
 ```
-### `--inMemory`
+#### `--inMemory`
 DynamoDB runs in memory instead of using a database file. Cannot be used along with `--dbPath`.
 ```
 dynamodb-local start --inMemory
 ```
-### `--port`
+#### `--port`
 The port number that dynamodb uses. Defaults to 8000
 ```
 dynamodb-local start --port=3000
 ```
-### `--sharedDb`
+#### `--sharedDb`
 DynamoDB uses a single database file instead of separate files for each credential and Region.
 ```
 dynamodb-local --sharedDb
