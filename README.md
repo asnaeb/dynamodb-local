@@ -1,5 +1,5 @@
 # DynamoDBLocal
-Install and run AWS DynamoDB locally via CLI or Node.
+Install and run AWS DynamoDB locally via CLI or Javascript API.
 
 # Installation
 ```
@@ -27,18 +27,39 @@ Starts dynamodb or, if not installed, prompts to install it and, on positive res
 ```
 dynamodb-local start
 ```
-
-| Argument | Description | Usage |
-| -------- | ----------- | ----- |
-| `--cors` | An allow list of specific domains separated by comma. Defaults to * | `dynamodb-local start --cors=my.domain.com,my-other-domain.com` |
-| `--dbPath` | The directory where DynamoDB writes its database file. Defaults to `{install dir}/DynamoDBLocal_db`. Cannot be used with `--inMemory` | `dynamodb-local start --dbPath=path/to/directory` |
-| `--delayTransientStatuses` | Causes DynamoDB to introduce delays for certain operations | `dynamodb-local start --delayTransientStatuses` |
-| `--inMemory` | DynamoDB runs in memory instead of using a database file. Cannot be used with `--dbPath` | `dynamodb-local start --inMemory` |
-| `--port` | The port number that dynamodb uses. Defaults to 8000 | `dynamodb-local start --port=3000` |
-| `--sharedDb` | DynamoDB uses a single database file instead of separate files for each credential and Region. | `dynamodb-local --sharedDb` |
+### `--cors`
+An allow list of specific domains separated by comma. Defaults to *
+```
+dynamodb-local start --cors=my.domain.com,my-other-domain.com
+```
+### `---dbPath`
+The directory where DynamoDB writes its database file. Defaults to `{install dir}/DynamoDBLocal_db`. Cannot be used along with `--inMemory`.
+```
+dynamodb-local start --dbPath=path/to/directory
+```
+### `--delayTransientStatuses`
+Causes DynamoDB to introduce delays for certain operations, simulating the behavior of the DynamoDB web service more closely.
+```
+dynamodb-local start --delayTransientStatuses
+```
+### `--inMemory`
+DynamoDB runs in memory instead of using a database file. Cannot be used along with `--dbPath`.
+```
+dynamodb-local start --inMemory
+```
+### `--port`
+The port number that dynamodb uses. Defaults to 8000
+```
+dynamodb-local start --port=3000
+```
+### `--sharedDb`
+DynamoDB uses a single database file instead of separate files for each credential and Region.
+```
+dynamodb-local --sharedDb
+```
 
 For more info about these options, see the [aws documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.UsageNotes.html)
-## `--path` 
+## The `--path` argument
 All CLI commands can take the `--path` argument which indicates to run that command relative to a custom path where a dynamodb installation resides. Most of the times you won't need this. When omitted, the default install location will be used: `{package root}/node_modules/@asn.aeb/dynamodb-local/dynamodb`.
 ```
 dynamodb-local install --path=path/to/directory
@@ -50,8 +71,8 @@ dynamodb-local uninstall --path=path/to/directory
 dynamodb-local start --path=path/to/directory
 ```
 # Javascript 
-The Javascript API can be run from Node >= 16. The package exports a single class called `DynamoDBLocal` and the `DynamoDBOptions` interface for Typescript. 
-## DynamoDBLocal
+The Javascript API can be run from Node >= 14. The package exports a single class called `DynamoDBLocal` and the `DynamoDBOptions` interface for Typescript. 
+## `DynamoDBLocal`
 To use the default install location (recommended), You won't need to instantiate the class, just use its static methods. The methods return promises and may prompt to the console.
 ```javascript
 import {DynamoDBLocal} from '@asn.aeb/dynamodb-local'
@@ -79,10 +100,12 @@ Same as calling [`dynamodb-local install`](#install-1). Returns a promise that r
 import {DynamoDBLocal} from '@asn.aeb/dynamodb-local'
 
 try {
-    await DynamoDBLocal.start()
+    await DynamoDBLocal.install()
+
     // OR
+
     const ddb = new DynamoDBLocal('path/to/dir')
-    await ddb.start()
+    await ddb.install()
 }
 
 catch (error) {
@@ -97,7 +120,9 @@ import {DynamoDBLocal} from '@asn.aeb/dynamodb-local'
 
 try {
     await DynamoDBLocal.uninstall()
+
     // OR
+
     const ddb = new DynamoDBLocal('path/to/dir')
     await ddb.uninstall()
 }
@@ -125,7 +150,9 @@ import {DynamoDBLocal} from '@asn.aeb/dynamodb-local'
 
 try {
     await DynamoDBLocal.start({inMemory: true, port: 3000})
+
     // OR
+
     const ddb = new DynamoDBLocal('path/to/dir')
     await ddb.start({cors: ['my.domain.com', 'my-other-domain.com']})
 }
