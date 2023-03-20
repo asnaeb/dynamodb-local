@@ -95,7 +95,7 @@ await dynamodbLocal.stop()
 await dynamodbLocal.uninstall()
 ```
 ## `install`
-Same as calling [`dynamodb-local install`](#install-1). Returns a promise that resolves to `void` when the installation is complete or rejects if there is some error.
+Same as calling [`dynamodb-local install`](#install). Returns a promise that resolves to `void` when the installation is complete or rejects if there is some error.
 ### Example
 ```javascript
 import {DynamoDBLocal} from '@asn.aeb/dynamodb-local'
@@ -112,7 +112,7 @@ try {
 catch {}
 ```
 ## `uninstall`
-Same as calling [`dynamodb-local uninstall`](#install-1). Returns a promise that resolves to `void` when the uninstallation is complete or rejects if there is some error.
+Same as calling [`dynamodb-local uninstall`](#uninstall). Returns a promise that resolves to `void` when the uninstallation is complete or rejects if there is some error.
 ### Example
 ```javascript
 import {DynamoDBLocal} from '@asn.aeb/dynamodb-local'
@@ -129,7 +129,7 @@ try {
 catch {}
 ```
 ## `start`
-Same as calling [`dynamodb-local start`](#start-1). Returns a promise that resolves to `void` when dynamodb has started or rejects if there is some error. Optionally, takes an object as the only argument with the following shape:
+Same as calling [`dynamodb-local start`](#start). Returns a promise that resolves to `void` when dynamodb has started or rejects if there is some error. Optionally, takes an object as the only argument with the following shape:
 ```typescript
 interface DynamoDBOptions {
     cors?: string[]
@@ -140,7 +140,7 @@ interface DynamoDBOptions {
     sharedDB?: boolean
 } 
 ```
-For info about these options, [see above](#start-1).
+For info about these options, [see above](#start).
 ### Example
 ```javascript
 import {DynamoDBLocal} from '@asn.aeb/dynamodb-local'
