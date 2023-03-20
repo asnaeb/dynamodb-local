@@ -1,6 +1,6 @@
 {
   "name": "@asn.aeb/dynamodb-local",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Use DynamoDB locally from Node.js or CLI",
   "engines": {
     "node": ">=14"
