@@ -1,6 +1,6 @@
 {
   "name": "@asn.aeb/dynamodb-local",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Use DynamoDB locally from Node.js or CLI",
   "engines": {
     "node": ">=14"
@@ -12,7 +12,10 @@
   "bin": {
     "dynamodb-local": "bin/dynamodb-local.mjs"
   },
-  "files": ["lib", "bin"],
+  "files": [
+    "lib",
+    "bin"
+  ],
   "main": "lib/index.js",
   "exports": {
     ".": "./lib/index.js"
