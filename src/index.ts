@@ -4,7 +4,7 @@ import {RequestOptions, request} from 'node:https'
 import {join, normalize, resolve as path_resolve, parse} from 'node:path'
 import {Interface, createInterface} from 'node:readline/promises'
 import {libIndex} from './lib-index'
-import {backgrounds, styles, msg, log} from './shell'
+import {backgrounds, styles, msg, log, colors} from './shell'
 
 export interface DynamoDBOptions {
     /**
@@ -248,7 +248,9 @@ export class DynamoDBLocal {
                                 process.stdout.clearLine(0)
                                 process.stdout.cursorTo(0)
                                 process.stdout.write(
-                                    msg.info(`Downloading DynamoDB from ${url.host} `) + backgrounds.blue.bold(' ' + percentage + ' ')
+                                    msg.info(
+                                        `Downloading DynamoDB from ${url.host} `) + 
+                                        backgrounds.blue.bold(' ' + colors.white(percentage) + backgrounds.blue(' '))
                                 )
                             }
                         })
