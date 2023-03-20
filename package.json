@@ -12,6 +12,8 @@
   "bin": {
     "dynamodb-local": "bin/dynamodb-local.mjs"
   },
+  "files": ["lib", "bin"],
+  "main": "lib/index.js",
   "exports": {
     ".": "./lib/index.js"
   },
