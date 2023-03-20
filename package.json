@@ -1,0 +1,28 @@
+{
+  "name": "@asn.aeb/dynamodb-local",
+  "version": "0.0.1",
+  "description": "Use DynamoDB locally from Node.js or CLI",
+  "bin": {
+    "dynamodb-local": "bin/dynamodb-local.mjs"
+  },
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "pretest": "npm run build",
+    "test": "ts-node-esm -T -O {\\\"module\\\":\\\"ESNext\\\"} --"
+  },
+  "keywords": [
+    "dynamodb",
+    "local"
+  ],
+  "author": "asnaeb",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "@types/node": "^18.15.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.2"
+  }
+}
