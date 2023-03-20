@@ -1,6 +1,6 @@
 # DynamoDBLocal
 Install and run AWS DynamoDB locally via CLI or Javascript API.
-![](https://i.ibb.co/TB4VtY1/ddb.gif)
+![sample](https://i.ibb.co/TB4VtY1/ddb.gif)
 > **NOTE**:
 > To run DynamoDB on your computer, you must have the Java Runtime Environment (JRE) version 8.x or newer installed. The application doesn't run on earlier JRE versions.
 # Installation
