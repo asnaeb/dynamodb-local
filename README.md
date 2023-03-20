@@ -11,23 +11,23 @@ npm i -g @asn.aeb/dybamodb-local
 ```
 # CLI
 The CLI API can be used via `npx dynamodb-local` when installed locally or by just calling `dynamodb-local` from your shell when installed with `-g` 
-## `install` command
+## `install`
 Downloads and installs dynamodb or, if already installed, prompts to download the latest version and update the current installation.
 ```
 dynamodb-local install 
 ```
-## `uninstall` command
+## `uninstall`
 Uninstalls dynamodb.
 ```
 dynamodb-local uninstall 
 ```
 
-## `start` command
+## `start`
 Starts dynamodb or, if not installed, prompts to install it and, on positive response, will install and then immediately start the service.
 ```
 dynamodb-local start
 ```
-### Arguments
+The `start` command can take the following arguments:
 #### `--cors`
 An allow list of specific domains separated by comma. Defaults to *
 ```
