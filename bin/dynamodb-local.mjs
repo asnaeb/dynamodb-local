@@ -2,12 +2,12 @@
 
 //@ts-check
 
-import {DynamoDBLocal} from '../lib/index.js';
+import {DynamoDBLocalCLI} from '../lib/dynamodb-local.js';
 import {log, styles} from '../lib/shell.js';
 
-/** @type {typeof DynamoDBLocal | DynamoDBLocal} */
-let ddbLocal = DynamoDBLocal;
-/** @type {import('../src/index.js').DynamoDBOptions}*/
+/** @type {typeof DynamoDBLocalCLI | DynamoDBLocalCLI} */
+let ddbLocal = DynamoDBLocalCLI;
+/** @type {import('../src/dynamodb-local.js').DynamoDBOptions}*/
 let options = {};
 
 switch (process.argv[2]) {
@@ -16,7 +16,7 @@ switch (process.argv[2]) {
             ?.replace('--path=', '');
 
         if (path) {
-            ddbLocal = new DynamoDBLocal(path);
+            ddbLocal = new DynamoDBLocalCLI(path);
         }
 
         try {await ddbLocal.install()} catch {};
@@ -28,7 +28,7 @@ switch (process.argv[2]) {
             ?.replace('--path=', '');
         
         if (path) {
-            ddbLocal = new DynamoDBLocal(path);
+            ddbLocal = new DynamoDBLocalCLI(path);
         }
 
         try {await ddbLocal.uninstall()} catch {};
@@ -73,7 +73,7 @@ switch (process.argv[2]) {
         }
         
         if (path) {
-            ddbLocal = new DynamoDBLocal(path);
+            ddbLocal = new DynamoDBLocalCLI(path);
         }
 
         try {await ddbLocal.start(options)} catch {}
